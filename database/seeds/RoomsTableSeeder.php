@@ -22,6 +22,16 @@ class RoomsTableSeeder extends Seeder
                 'status' => $faker->randomDigitNotNull,
             ]);
         }
+        
+        $faker = Faker::create('App\Models\RoomModel');
+        for ($i=0; $i < $limit; $i++) {
+            DB::table('room')->insert([
+                'name' => $faker->name,
+                'place' => $faker->state,
+                'price' => $faker->randomNumber(2),
+                'status' => $faker->randomDigitNotNull,
+            ]);
+        }
 
         $faker = Faker::create('App\Models\BorrowModel');
         for ($i=0; $i < $limit; $i++) {
