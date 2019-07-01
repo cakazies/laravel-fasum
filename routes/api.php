@@ -10,5 +10,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // for room
 Route::resource('room','RoomController');
+Route::resource('borrow','BorrowController');
+
+
+
+// example
 // Route::get('/getrooms', 'RoomController@index')->name('index');
 // Route::post('/create', 'RoomController@create')->name('create');

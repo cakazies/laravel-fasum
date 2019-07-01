@@ -9,13 +9,14 @@ class RoomController extends Controller
 {
     public function index()
     {
-        $room['data'] = RoomModel::all();
+        $room['data'] = RoomModel::paginate(10);
+        // print_r ($room['data']);
         return response()->json($room);
     }
 
     public function create()
     {
-        
+
     }
 
     public function store(Request $request)
@@ -27,8 +28,8 @@ class RoomController extends Controller
         $room->status = $request->status;
         $room->save();
         $rsp['response']['code'] = 200;
-        $rsp['response']['massage'] = "Telah Berhasil disimpan";        
-        $rsp['response']['insert_id'] = $room->id;        
+        $rsp['response']['massage'] = "Telah Berhasil disimpan";
+        $rsp['response']['insert_id'] = $room->id;
         return response()->json($rsp);
     }
 
@@ -52,7 +53,7 @@ class RoomController extends Controller
      */
     public function edit($id = 0)
     {
-        
+
     }
 
     /**
@@ -74,8 +75,8 @@ class RoomController extends Controller
         $room->save();
 
         $rsp['response']['code'] = 200;
-        $rsp['response']['massage'] = "Telah Berhasil diupdate";        
-        $rsp['response']['insert_id'] = $id;        
+        $rsp['response']['massage'] = "Telah Berhasil diupdate";
+        $rsp['response']['insert_id'] = $id;
         return response()->json($rsp);
     }
 
@@ -91,7 +92,7 @@ class RoomController extends Controller
         $room->destroy($id);
 
         $rsp['response']['code'] = 200;
-        $rsp['response']['massage'] = "Telah Berhasil dihapus";        
+        $rsp['response']['massage'] = "Telah Berhasil dihapus";
         return response()->json($rsp);
     }
 }
