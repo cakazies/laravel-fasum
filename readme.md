@@ -1,6 +1,6 @@
 ## Laravel-Fasum
 
-Laravel framework with CRUD REST-API and authentification and JWT
+Laravel framework with CRUD REST-API and JWT
 
 
 ### Laravel App
