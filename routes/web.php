@@ -1,11 +1,15 @@
 <?php
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('user/index');
 });
 
 Route::get('/index', function () {
-    return "index ";
+    return "user/index ";
 });
 
 Auth::routes();
