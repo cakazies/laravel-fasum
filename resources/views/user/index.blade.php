@@ -258,48 +258,48 @@
 	<script src="assets/js/demo.js"></script>
 
 	<script type="text/javascript">
-    	$(document).ready(function(){
+    	$(document).ready(function() {
 
-        	demo.initChartist();
+        demo.initChartist();
 
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+        $.notify({
+            icon: 'pe-7s-gift',
+            message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
 
-            },{
-                type: 'info',
-                timer: 4000
-            });
+        }, {
+            type: 'info',
+            timer: 4000
+        });
 
-    	});
-		  document.addEventListener('DOMContentLoaded', function() {
-			var calendarEl = document.getElementById('calendar');
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
 
-			var calendar = new FullCalendar.Calendar(calendarEl, {
-			  plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
-			  header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-			  },
-			  defaultDate: '2019-06-12',
-			  editable: true,
-			  navLinks: true, // can click day/week names to navigate views
-			  eventLimit: true, // allow "more" link when too many events
-			  events: {
-				url: 'php/get-events.php',
-				failure: function() {
-				  document.getElementById('script-warning').style.display = 'block'
-				}
-			  },
-			  loading: function(bool) {
-				document.getElementById('loading').style.display =
-				  bool ? 'block' : 'none';
-			  }
-			});
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: ['interaction', 'dayGrid', 'timeGrid', 'list'],
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            },
+            defaultDate: '<?php echo date('Y-m-d');?>',
+            editable: true,
+            navLinks: true, // can click day/week names to navigate views
+            eventLimit: true, // allow "more" link when too many events
+            events: {
+                url: 'http://localhost/rest/public/api/borrow',
+                failure: function() {
+                    document.getElementById('script-warning').style.display = 'block'
+                }
+            },
+            loading: function(bool) {
+                document.getElementById('loading').style.display =
+                    bool ? 'block' : 'none';
+            }
+        });
 
-			calendar.render();
-		  });
+        calendar.render();
+        });
 
 </script>
 </html>

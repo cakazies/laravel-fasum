@@ -12,7 +12,7 @@ class RoomsTableSeeder extends Seeder
          * digunakan untuk mengenerate value dari tabel yang disediakan
          * untuk perintah menjalanakn menggunakan 'php artisan db:seed --class=EducationSeeder'
          */
-        $limit = 100;
+        $limit = 1000;
         $faker = Faker::create('App\User');
         for ($i=0; $i < 10; $i++) {
             DB::table('users')->insert([
@@ -34,14 +34,17 @@ class RoomsTableSeeder extends Seeder
 
         $faker = Faker::create('App\Models\BorrowModel');
         for ($i=0; $i < $limit; $i++) {
+            $days = rand(0,5);
+            $start = $faker->dateTimeBetween($startDate = 'now', $endDate = '+4 months', $timezone = null);
+            $end = date('Y-m-d ', strtotime("+$days days", strtotime( $start->format('Y-m-d H:i:s') )));
             DB::table('borrow')->insert([
-                'room_id' => $faker->unique->randomDigitNotNull,
+                'room_id' => rand(1,100),
                 'name' => $faker->catchPhrase,
                 'borrower' => $faker->name,
-                'start_date' => $faker->dateTime,
-                'end_date' => $faker->dateTime,
-                'booking' => $faker->dateTime,
-                'status' => $faker->randomDigitNotNull,
+                'start_date' => $start,
+                'end_date' => $end,
+                'booking' => $start,
+                'status' => rand(0,1),
             ]);
         }
 

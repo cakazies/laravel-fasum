@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BorrowModel;
-
+use Faker\Factory as Faker;
 
 class BorrowController extends Controller
 {
 
     public function index()
     {
-        $borrow = BorrowModel::paginate(10);
+        $borrow = BorrowModel::select('id', 'name as title', 'start_date as start', 'end_date as end')
+                            ->take(1000)
+                            ->orderBy('id', 'ASC')
+                            ->get();
         return response()->json($borrow);
 
     }
