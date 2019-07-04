@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RoomModel;
+use DataTables;
 
 class RoomController extends Controller
 {
@@ -12,6 +13,10 @@ class RoomController extends Controller
         $room['data'] = RoomModel::paginate(10);
         // print_r ($room['data']);
         return response()->json($room);
+    }
+    public function dataTable()
+    {
+        return Datatables::of(RoomModel::all())->make(true);
     }
 
     public function create()

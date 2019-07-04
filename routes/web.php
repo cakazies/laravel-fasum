@@ -7,6 +7,7 @@
 Route::get('/', function () {
     return view('user/index');
 })->name('index');
+
 Route::get('/room', function () {
     return view('admin/room');
 })->name('admin.room');
@@ -23,10 +24,10 @@ Route::get('/admin',function() {
     return view('admin');
 })->name('adminpage');
 
-Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
+// Route::get('admin-login', 'Auth\AdminLoginController@showLoginForm');
 
-Route::post('admin-login', ['as' => 'admin-login', 'uses' => 'Auth\AdminLoginController@login']);
+// Route::post('admin-login', ['as' => 'admin-login', 'uses' => 'Auth\AdminLoginController@login']);
 
-Route::get('admin-register', 'Auth\AdminLoginController@RegisterPage');
+// Route::get('admin-register', 'Auth\AdminLoginController@RegisterPage');
 
-Route::post('admin-register', 'Auth\AdminLoginController@register')->name('admin.register');
+// Route::post('admin-register', 'Auth\AdminLoginController@register')->name('admin.register');

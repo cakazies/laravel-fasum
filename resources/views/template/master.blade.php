@@ -27,6 +27,7 @@
 	<script src='assets/packages/daygrid/main.js'></script>
 	<script src='assets/packages/timegrid/main.js'></script>
 	<script src='assets/packages/list/main.js'></script>
+    
 </head>
 <body>
 
@@ -318,7 +319,7 @@
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 	<script src="https://demos.creative-tim.com/login-register/assets/js/login-register.js"></script>
-
+    @yield('some_assets')
 	<script type="text/javascript">
     	$(document).ready(function() {
             demo.initChartist();

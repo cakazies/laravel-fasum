@@ -3,6 +3,8 @@
 // for room
 Route::resource('room','RoomController');
 Route::resource('borrow','BorrowController');
+Route::get('rooms/datatable', 'RoomController@dataTable')->name('rooms.datatable');
+
 
 Route::group([
     'prefix' => 'auth'
