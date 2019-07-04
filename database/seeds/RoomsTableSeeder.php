@@ -31,11 +31,11 @@ class RoomsTableSeeder extends Seeder
                 'status' => $faker->randomDigitNotNull,
             ]);
         }
-
         $faker = Faker::create('App\Models\BorrowModel');
         for ($i=0; $i < $limit; $i++) {
             $days = rand(0,5);
-            $start = $faker->dateTimeBetween($startDate = 'now', $endDate = '+4 months', $timezone = null);
+            $months = $limit/12.5;
+            $start = $faker->dateTimeBetween($startDate = 'now', $endDate = "+$months months", $timezone = null);
             $end = date('Y-m-d ', strtotime("+$days days", strtotime( $start->format('Y-m-d H:i:s') )));
             DB::table('borrow')->insert([
                 'room_id' => rand(1,100),

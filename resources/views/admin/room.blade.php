@@ -1,8 +1,8 @@
 @extends('template/master')
 
-@section('title_page', 'Dashboard Title')
+@section('title_page', 'Rooms Title')
 
-@section('head_page', 'Dashboard')
+@section('head_page', 'Master Room')
 
 @section('content')
 <div class="header">
